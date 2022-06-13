@@ -1,6 +1,5 @@
 import './index.css';
 import { useState } from 'react';
-import { render } from '@testing-library/react';
 
 /*
 const shouldShowLanding2 = () => {
@@ -45,6 +44,15 @@ function App() {
     { name: "Strawberry Mango Haze", flavor: "mango", effect: "uplifted" }
   ];
 
+  const transform = (strain) => {
+    if (strain.name.startsWith(inputValue)) {
+      return <li>{strain.name} - {strain.flavor}</li>
+    } else {
+      return null
+    }
+  }
+
+  console.log(strains);
   return (
     <div>
       <h1>Hello world</h1>
@@ -81,12 +89,9 @@ function App() {
 
       <hr />
       <ul>
-        {strains.map((strain) => {
-          if (strain.name.startsWith(inputValue)) {
-            return <li>{strain.name} - {strain.flavor}</li>
-          }
-        })}
+        {strains.map(transform)}
       </ul>
+
     </div>
   );
 
